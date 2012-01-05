@@ -54,6 +54,15 @@ as well as an object, specifying a method to call, so view the RDoc for more inf
      c.action do |args, options|
        say 'foo'
      end
+
+     c.command :baz do |fbc|
+       fbc.syntax = 'foobar foo baz'
+       c.description = 'Displays baz component of foo'
+       c.action do |args, options|
+         say 'baz'
+       end
+     end
+
    end
 
    command :bar do |c|
@@ -69,6 +78,9 @@ as well as an object, specifying a method to call, so view the RDoc for more inf
 
    $ foobar bar
    # => (bar)
+
+   $ foobar foo baz
+   # => baz
 
    $ foobar bar --suffix '{' --prefix '}'
    # => {bar}

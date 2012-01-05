@@ -1,8 +1,10 @@
 
 require 'optparse'
+require 'commander/commandable'
 
 module Commander
   class Runner
+    include Commander::Commandable
     
     #--
     # Exceptions
@@ -10,11 +12,6 @@ module Commander
 
     class CommandError < StandardError; end
     class InvalidCommandError < CommandError; end
-    
-    ##
-    # Array of commands.
-    
-    attr_reader :commands
     
     ##
     # Global options.
